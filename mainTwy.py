@@ -1,17 +1,18 @@
 from twython import Twython
 from pymongo import MongoClient
-import json, pprint
 
-consumer_API = 'p6tClVvRPB6T8QIXosSNd6zkH'
-secret_API = 'jNR4VftF0dC7AEVvsePJNOlZOUrERGrQMvopiG8N3TDx95Nbe8'
-access = '1097916952880779267-FGv9uJYb6PkU8aebe2tCNjQECxJ7gy'
-secret_access = 'Gb707a8CRLGCZHxfBzFGEvnIQxn5dMq2iKpdrHL4W4Xq7'
-
+consumer_key = 'p6tClVvRPB6T8QIXosSNd6zkH'
+consumer_secret = 'jNR4VftF0dC7AEVvsePJNOlZOUrERGrQMvopiG8N3TDx95Nbe8'
+access_token = '1097916952880779267-FGv9uJYb6PkU8aebe2tCNjQECxJ7gy'
+access_secret = 'Gb707a8CRLGCZHxfBzFGEvnIQxn5dMq2iKpdrHL4W4Xq7'
 dbclient = MongoClient('localhost',27017)
 db = dbclient['twitter_data']
 collection_tweet = db['tweets']
 
-client = Twython(consumer_API,secret_API,access,secret_access)
+client = Twython(consumer_key,
+                consumer_secret,
+                access_token,
+                access_secret)
 
 results = client.search(q='tesla',count=100)
 
